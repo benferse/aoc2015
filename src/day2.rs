@@ -101,6 +101,6 @@ mod answers {
             .flat_map(|line| line.parse::<Present>())
             .fold(0, |accum, x| accum + x.ribbon_length() + x.bow_length());
 
-        assert_eq!(total, 9);
+        assert_eq!(total, 3812909);
     }
 }
