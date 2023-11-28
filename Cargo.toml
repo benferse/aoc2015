@@ -6,3 +6,4 @@ rust-version = "1.73"
 
 [dependencies]
 md5 = "0.7.0"
+nom = "7.1.3"
