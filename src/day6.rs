@@ -1,22 +1,10 @@
 //! Day 6 - Probably a Fire Hazard
 
+use crate::prelude::*;
 use nom::{IResult, error::context, branch::alt, bytes::complete::tag, sequence::separated_pair};
-use nom::character::complete::{char, digit1, multispace0};
-use nom::error::ParseError;
-use nom::sequence::{delimited, tuple};
+use nom::character::complete::{char, digit1};
+use nom::sequence::tuple;
 
-/// A combinator that takes a parser `inner` and produces a parser that also consumes both leading and 
-/// trailing whitespace, returning the output of `inner`.
-fn ws<'a, F: 'a, O, E: ParseError<&'a str>>(inner: F) -> impl FnMut(&'a str) -> IResult<&'a str, O, E>
-  where
-  F: Fn(&'a str) -> IResult<&'a str, O, E>,
-{
-  delimited(
-    multispace0,
-    inner,
-    multispace0
-  )
-}
 #[derive(Debug, PartialEq, Eq)]
 pub enum Operation {
     TurnOn,
